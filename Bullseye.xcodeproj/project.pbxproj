@@ -16,6 +16,7 @@
 		E2BEEAD12500990400361A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BEEACF2500990400361A66 /* Main.storyboard */; };
 		E2BEEAD32500990500361A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BEEAD22500990500361A66 /* Assets.xcassets */; };
 		E2BEEAD62500990500361A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BEEAD42500990500361A66 /* LaunchScreen.storyboard */; };
+		E2F337E9250D910F00AA40B0 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F337E8250D910F00AA40B0 /* HighScoresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E2BEEAD22500990500361A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2BEEAD52500990500361A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2BEEAD72500990500361A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F337E8250D910F00AA40B0 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HighScoresViewController.swift; path = Bullseye/HighScoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		E2BEEABD2500990400361A66 = {
 			isa = PBXGroup;
 			children = (
+				E2F337E8250D910F00AA40B0 /* HighScoresViewController.swift */,
 				E2BEEAC82500990400361A66 /* Bullseye */,
 				E2BEEAC72500990400361A66 /* Products */,
 				E217137D250C768700C03586 /* Frameworks */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F337E9250D910F00AA40B0 /* HighScoresViewController.swift in Sources */,
 				E2BEEACE2500990400361A66 /* ViewController.swift in Sources */,
 				E2BEEACA2500990400361A66 /* AppDelegate.swift in Sources */,
 				E2171378250C72FF00C03586 /* AboutViewController.swift in Sources */,
