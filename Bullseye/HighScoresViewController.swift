@@ -8,7 +8,25 @@
 
 import UIKit
 
-class HighScoresViewController: UITableViewController {
+class HighScoresViewController: UITableViewController, EditHighScoreViewControllerDelegate {
+    func editHighScoreViewControllerDidCancel(_ controller: EditHighScoreViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func editHighScoreViewController(_ controller: EditHighScoreViewController, didFinishEditing item: HighScoreItem) {
+        //1
+        if let index = items.firstIndex(of: item){
+            //2
+            let indexPath = IndexPath(row: index, section: 0)
+            let indexPaths = [indexPath]
+            //3
+            tableView.reloadRows(at: indexPaths, with: .automatic)
+        }
+        // 4
+        PersistencyHelper.saveHighScores(items)
+        navigationController?.popViewController(animated: true)
+    }
+    
     var items = [HighScoreItem]()
 
 
@@ -139,15 +157,17 @@ class HighScoresViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //1
+        let controller = segue.destination as! EditHighScoreViewController
+        // 2
+        controller.delegate = self
+        // 3
+        if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+            controller.highScoreItem = items[indexPath.row]
+            
+        }
     }
-    */
-
 }

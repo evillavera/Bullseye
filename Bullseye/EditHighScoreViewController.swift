@@ -8,25 +8,36 @@
 
 import UIKit
 
+protocol EditHighScoreViewControllerDelegate: class {
+    func editHighScoreViewControllerDidCancel(_ controller: EditHighScoreViewController)
+    func editHighScoreViewController(_ controller: EditHighScoreViewController, didFinishEditing item: HighScoreItem)
+}
+
 class EditHighScoreViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textField.text = highScoreItem.name
     }
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     @IBAction func cancel(){
-        navigationController?.popViewController(animated: true)
+        delegate?.editHighScoreViewControllerDidCancel(self)
     }
     
     @IBAction func done(){
-        print("Contents of the text field: \(textField.text!)")
-        navigationController?.popViewController(animated: true)
+//        print("Contents of the text field: \(textField.text!)")
+        highScoreItem.name = textField.text!
+        
+        delegate?.editHighScoreViewController(self, didFinishEditing: highScoreItem)
     }
 
+    weak var delegate: EditHighScoreViewControllerDelegate?
+    var highScoreItem: HighScoreItem!
+    
     // MARK:- Table View Delegates
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath)
     -> IndexPath? { return nil
